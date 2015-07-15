@@ -16,7 +16,7 @@ pd.set_option('display.max_columns', 60)
 
 plt.rcParams['figure.figsize'] = (15,5)
 
-path = 'C:/2_python/pandas_cookbook/311-service-requests.csv'
+path = '311-service-requests.csv'
 
 complaints = pd.read_csv(path)
 

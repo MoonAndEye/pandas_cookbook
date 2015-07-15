@@ -16,9 +16,9 @@ pd.set_option('display.max_columns', 60)
 
 plt.rcParams['figure.figsize'] = (15,5)
 
-path = 'C:/2_python/pandas_cookbook/bikes.csv'
+path = 'C:/2_python/pandas_cookbook/311-service-requests.csv'
 
+complaints = pd.read_csv(path)
 
-fixed_df = pd.read_csv(path, sep=';', encoding='latin1', parse_dates = 1, dayfirst = True, index_col = 0)
-
-fixed_df.plot(figsize = (15,10))
+#print (complaints['Complaint Type'])
+print (complaints['Complaint Type'][:5])

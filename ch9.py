@@ -13,5 +13,5 @@ import numpy as np
 path = 'data/weather_2012.sqlite'
 
 con = sqlite3.connect(path)
-df = pd.read_sql("SELECT * from weather_2012 LIMIT 3", con)
+df = pd.read_sql("SELECT * from weather_2012 LIMIT 3", con, index_col = ['id', 'date_time'])
 print (df)

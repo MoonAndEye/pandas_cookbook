@@ -39,6 +39,14 @@ def download_weather_month(year, month):
     weather_data = weather_data.drop(['Year', 'Day', 'Month', 'Time', 'Data Quality'], axis=1)
     return weather_data
     
-weather_jan2012 = download_weather_month(2012, 1)[:5]
+#weather_jan2012 = download_weather_month(2012, 1)[:5]
 
-print (weather_jan2012)
+#print (weather_jan2012)
+
+data_by_month = [download_weather_month(2012, i) for i in range(1,13)]
+
+weather_2012 = pd.concat(data_by_month)
+
+print (weather_2012[:10])
+
+weather_2012.to_csv('data/weather2012.csv')

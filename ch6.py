@@ -21,9 +21,21 @@ weather_2012 = pd.read_csv(path, parse_dates = True, index_col = 'Date/Time')
 weather_description = weather_2012['Weather']
 is_snowing = weather_description.str.contains('Snow')
 is_snowing = is_snowing.astype(float).resample('M', how=np.mean)
-print (is_snowing)
+temperature = weather_2012['Temp (C)'].resample('M', how = np.median)
+
+snowiness = is_snowing
+
+#name the columns
+temperature.name = "Temp"
+snowiness.name = "Snowiness"
+
+stats = pd.concat([temperature, snowiness], axis = 1)
+
+print (stats)
+stats.plot(kind = 'bar', subplots = True, figsize = (8,3))
+#print (is_snowing)
 
 #a = weather_2012['Temp (C)'].resample('M', how=np.median).plot(kind='bar')
-b = is_snowing.plot(kind = 'bar')
+#b = is_snowing.plot(kind = 'bar')
 #print (a)
 
